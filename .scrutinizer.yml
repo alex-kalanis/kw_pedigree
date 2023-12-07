@@ -12,6 +12,7 @@ build:
     php:
       version: '7.4'
     variables:
+      MYSKIP: 1
       MYUSER: 'root'
       MYPASS: ''
       MYDB: 'scrutinizer'

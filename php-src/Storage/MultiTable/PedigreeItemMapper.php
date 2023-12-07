@@ -70,14 +70,14 @@ class PedigreeItemMapper extends Mappers\Database\ADatabase implements ILike
         $relateRecordClass = $this->getRelateRecordClass();
         $relation = new $relateRecordClass();
         /** @var PedigreeRelateRecord $relation */
-        $relation->childId = strval($record->__get('id'));
+        $relation->childId = intval(strval($record->__get('id')));
         $all = $relation->loadMultiple();
         foreach ($all as $item) {
             $item->delete();
         }
         $relation = new $relateRecordClass();
         /** @var PedigreeRelateRecord $relation */
-        $relation->parentId = strval($record->__get('id'));
+        $relation->parentId = intval(strval($record->__get('id')));
         $all = $relation->loadMultiple();
         foreach ($all as $item) {
             $item->delete();
