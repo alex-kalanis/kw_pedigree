@@ -49,7 +49,7 @@ abstract class AMultiTableTest extends AMySqlTest
     `kwp_death` varchar(32) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
     `kwp_successes` varchar(1024) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
     `kwp_sex` set('female','male') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'male',
-    `kwp_text` longtext COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+    `kwp_text` longtext COLLATE utf8_unicode_ci NOT NULL,
     PRIMARY KEY (`kwp_id`),
     -- UNIQUE KEY `identifier` (`kwp_short`),
     INDEX `birth` (`kwp_birth`),
@@ -77,21 +77,21 @@ abstract class AMultiTableTest extends AMySqlTest
      */
     protected function fillTable1(): string
     {
-        return 'INSERT INTO `kw_pedigree_upd` (`kwp_id`, `kwp_name`, `kwp_family`, `kwp_short`, `kwp_birth`, `kwp_death`, `kwp_sex`) VALUES
-( 1, "Duncan I.", "MacAlpin", "duncan_i", "1001", "1040", "male"),
-( 2, "Sybilla", "of Northumbria", "sybilla", "", "", "female"),
-( 3, "Malcolm III.", "Dunkeld", "malcolm_iii", "1031", "1093", "male"),
-( 4, "Margaret", "dau of Edward Aetherling", "margaret", "", "1069", "female"),
-( 5, "Donald III.", "Dunkeld", "donald_iii", "1033", "1099", "male"),
-( 6, "Duncan II.", "Dunkeld", "duncan_ii", "1060", "1094", "male"),
-( 7, "Edmund", "Dunkeld", "edmund", "1060", "1097", "male"),
-( 8, "Edgar", "Dunkeld", "edgar", "1072", "1107", "male"),
-( 9, "Alexander I.", "Dunkeld", "alexander_i", "1077", "1124", "male"),
-(10, "David I.", "Dunkeld", "david_i", "1080", "1153", "male"),
-(11, "Matilda", "of Huntingdon", "matilda", "1074", "1130", "female"),
-(12, "Henry", "of Huntingdon", "henry", "1114", "1152", "male"),
-(13, "Ada", "de Warenne", "ada", "", "1178", "female"),
-(14, "Malcolm IV.", "Dunkeld", "malcolm_iv", "1141", "1165", "male")
+        return 'INSERT INTO `kw_pedigree_upd` (`kwp_id`, `kwp_name`, `kwp_family`, `kwp_short`, `kwp_birth`, `kwp_death`, `kwp_sex`, `kwp_text`) VALUES
+( 1, "Duncan I.", "MacAlpin", "duncan_i", "1001", "1040", "male", ""),
+( 2, "Sybilla", "of Northumbria", "sybilla", "", "", "female", ""),
+( 3, "Malcolm III.", "Dunkeld", "malcolm_iii", "1031", "1093", "male", ""),
+( 4, "Margaret", "dau of Edward Aetherling", "margaret", "", "1069", "female", ""),
+( 5, "Donald III.", "Dunkeld", "donald_iii", "1033", "1099", "male", ""),
+( 6, "Duncan II.", "Dunkeld", "duncan_ii", "1060", "1094", "male", ""),
+( 7, "Edmund", "Dunkeld", "edmund", "1060", "1097", "male", ""),
+( 8, "Edgar", "Dunkeld", "edgar", "1072", "1107", "male", ""),
+( 9, "Alexander I.", "Dunkeld", "alexander_i", "1077", "1124", "male", ""),
+(10, "David I.", "Dunkeld", "david_i", "1080", "1153", "male", ""),
+(11, "Matilda", "of Huntingdon", "matilda", "1074", "1130", "female", ""),
+(12, "Henry", "of Huntingdon", "henry", "1114", "1152", "male", ""),
+(13, "Ada", "de Warenne", "ada", "", "1178", "female", ""),
+(14, "Malcolm IV.", "Dunkeld", "malcolm_iv", "1141", "1165", "male", "")
 ';
     }
 

@@ -15,7 +15,7 @@ CREATE TABLE `kw_pedigree_upd` (
     `kwp_death` varchar(32) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
     `kwp_successes` varchar(1024) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
     `kwp_sex` set('female','male') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'male',
-    `kwp_text` longtext COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+    `kwp_text` longtext COLLATE utf8_unicode_ci NOT NULL,
     PRIMARY KEY (`kwp_id`),
     UNIQUE KEY `identifier` (`kwp_short`),
     INDEX `birth` (`kwp_birth`),

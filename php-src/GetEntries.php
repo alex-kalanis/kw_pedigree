@@ -41,7 +41,7 @@ class GetEntries
     }
 
     /**
-     * @param string $id
+     * @param int $id
      * @throws MapperException
      * @return Storage\AEntryAdapter|null
      */

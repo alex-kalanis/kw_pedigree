@@ -4,8 +4,8 @@ parameters:
 		- 'php-src'
 #	scanFiles:
 #		- 'php-tests/CommonTestClass.php'
-	scanDirectories:
-		- 'php-tests/external'
+#	scanDirectories:
+#		- 'php-tests/external'
 	excludePaths:
 		- 'php-tests/_autoload.php'
 		- 'php-tests/_bootstrap.php'
@@ -21,8 +21,8 @@ parameters:
 		# polymorphysm on ORM - return subclass
 		- '#EntryAdapter\:\:getLoadedRecord\(\) should return#'
 		# polymorphysm on ORM - return subclass
-		- '#GetEntries\:\:getBySex\(\) should return#'
-		# polymorphysm on ORM - return subclass
 		- '#\:\:getLike\(\) should return#'
 		# polymorphysm on ORM - return subclass
 		- '#EntryAdapter\:\:getRelateRecord\(\) should return#'
+		# polymorphysm on ORM - return subclass
+		- '#GetEntries\:\:getBy\(\) should return#'

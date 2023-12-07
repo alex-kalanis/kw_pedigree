@@ -45,6 +45,11 @@ class PedigreeMapper extends Mappers\Database\ADatabase implements ILike
      */
     protected function beforeSave(ARecord $record): bool
     {
+        $text = strval($record->__get('text'));
+        if (empty($text)) {
+            $record->__set('text', '');
+        }
+
         $short = strval($record->__get('short'));
         $id = intval($record->__get('id'));
         if (!empty($id) && empty($short)) {

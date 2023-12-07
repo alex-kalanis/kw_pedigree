@@ -45,7 +45,7 @@ abstract class ASingleTableTest extends AMySqlTest
     `pedigree_mother_id` INTEGER NULL,
     `pedigree_successes` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
     `pedigree_sex` set('female','male') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'male',
-    `pedigree_text` longtext COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+    `pedigree_text` longtext COLLATE utf8_unicode_ci NOT NULL,
     CONSTRAINT fk_father FOREIGN KEY (`pedigree_father_id`)
         REFERENCES `kw_pedigree`(`pedigree_id`),
     CONSTRAINT fk_mother FOREIGN KEY (`pedigree_mother_id`)
@@ -65,21 +65,21 @@ abstract class ASingleTableTest extends AMySqlTest
      */
     protected function fillTable(): string
     {
-        return 'INSERT INTO `kw_pedigree` (`pedigree_id`, `pedigree_name`, `pedigree_family`, `pedigree_short`, `pedigree_birth`, `pedigree_death`, `pedigree_father_id`, `pedigree_mother_id`, `pedigree_sex`) VALUES
-( 1, "Duncan I.", "MacAlpin", "duncan_i", "1001", "1040", NULL, NULL, "male"),
-( 2, "Sybilla", "of Northumbria", "sybilla", "", "", NULL, NULL, "female"),
-( 3, "Malcolm III.", "Dunkeld", "malcolm_iii", "1031", "1093", 1, 2, "male"),
-( 4, "Margaret", "dau of Edward Aetherling", "margaret", "", "1069", NULL, NULL, "female"),
-( 5, "Donald III.", "Dunkeld", "donald_iii", "1033", "1099", 1, 2, "male"),
-( 6, "Duncan II.", "Dunkeld", "duncan_ii", "1060", "1094", 3, NULL, "male"),
-( 7, "Edmund", "Dunkeld", "edmund", "1060", "1097", 3, 4, "male"),
-( 8, "Edgar", "Dunkeld", "edgar", "1072", "1107", 3, 4, "male"),
-( 9, "Alexander I.", "Dunkeld", "alexander_i", "1077", "1124", 3, 4, "male"),
-(10, "David I.", "Dunkeld", "david_i", "1080", "1153", 3, 4, "male"),
-(11, "Matilda", "of Huntingdon", "matilda", "1074", "1130", NULL, NULL, "female"),
-(12, "Henry", "of Huntingdon", "henry", "1114", "1152", 10, 11, "male"),
-(13, "Ada", "de Warenne", "ada", "", "1178", NULL, NULL, "female"),
-(14, "Malcolm IV.", "Dunkeld", "malcolm_iv", "1141", "1165", 12, 13, "male")
+        return 'INSERT INTO `kw_pedigree` (`pedigree_id`, `pedigree_name`, `pedigree_family`, `pedigree_short`, `pedigree_birth`, `pedigree_death`, `pedigree_father_id`, `pedigree_mother_id`, `pedigree_sex`, `pedigree_text`) VALUES
+( 1, "Duncan I.", "MacAlpin", "duncan_i", "1001", "1040", NULL, NULL, "male", ""),
+( 2, "Sybilla", "of Northumbria", "sybilla", "", "", NULL, NULL, "female", ""),
+( 3, "Malcolm III.", "Dunkeld", "malcolm_iii", "1031", "1093", 1, 2, "male", ""),
+( 4, "Margaret", "dau of Edward Aetherling", "margaret", "", "1069", NULL, NULL, "female", ""),
+( 5, "Donald III.", "Dunkeld", "donald_iii", "1033", "1099", 1, 2, "male", ""),
+( 6, "Duncan II.", "Dunkeld", "duncan_ii", "1060", "1094", 3, NULL, "male", ""),
+( 7, "Edmund", "Dunkeld", "edmund", "1060", "1097", 3, 4, "male", ""),
+( 8, "Edgar", "Dunkeld", "edgar", "1072", "1107", 3, 4, "male", ""),
+( 9, "Alexander I.", "Dunkeld", "alexander_i", "1077", "1124", 3, 4, "male", ""),
+(10, "David I.", "Dunkeld", "david_i", "1080", "1153", 3, 4, "male", ""),
+(11, "Matilda", "of Huntingdon", "matilda", "1074", "1130", NULL, NULL, "female", ""),
+(12, "Henry", "of Huntingdon", "henry", "1114", "1152", 10, 11, "male", ""),
+(13, "Ada", "de Warenne", "ada", "", "1178", NULL, NULL, "female", ""),
+(14, "Malcolm IV.", "Dunkeld", "malcolm_iv", "1141", "1165", 12, 13, "male", "")
 ';
     }
 }
