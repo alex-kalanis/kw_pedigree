@@ -11,10 +11,8 @@ on:
 jobs:
   tests:
     runs-on: ubuntu-latest
-    env:
-      MYSKIP: 1
-      MSSKIP: 1
-      PGSKIP: 1
+#    env:
+#      MYSKIP: 1
     strategy:
       matrix:
         php: [ '7.3', '7.4', '8.0', '8.1' ]
