@@ -17,10 +17,8 @@ CREATE TABLE `kw_pedigree` (
     `pedigree_successes` varchar(1024) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
     `pedigree_sex` set('female','male') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'male',
     `pedigree_text` longtext COLLATE utf8_unicode_ci NOT NULL,
-    CONSTRAINT fk_father FOREIGN KEY (`pedigree_father_id`)
-        REFERENCES `kw_pedigree`(`pedigree_id`),
-    CONSTRAINT fk_mother FOREIGN KEY (`pedigree_mother_id`)
-        REFERENCES `kw_pedigree`(`pedigree_id`),
+    CONSTRAINT fk_father FOREIGN KEY (`pedigree_father_id`) REFERENCES `kw_pedigree`(`pedigree_id`),
+    CONSTRAINT fk_mother FOREIGN KEY (`pedigree_mother_id`) REFERENCES `kw_pedigree`(`pedigree_id`),
     UNIQUE KEY `identifier` (`pedigree_short`),
     INDEX `name` (`pedigree_name`),
     INDEX `family` (`pedigree_family`),

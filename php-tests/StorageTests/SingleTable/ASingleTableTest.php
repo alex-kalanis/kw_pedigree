@@ -46,10 +46,8 @@ abstract class ASingleTableTest extends AMySqlTest
     `pedigree_successes` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
     `pedigree_sex` set('female','male') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'male',
     `pedigree_text` longtext COLLATE utf8_unicode_ci NOT NULL,
-    CONSTRAINT fk_father FOREIGN KEY (`pedigree_father_id`)
-        REFERENCES `kw_pedigree`(`pedigree_id`),
-    CONSTRAINT fk_mother FOREIGN KEY (`pedigree_mother_id`)
-        REFERENCES `kw_pedigree`(`pedigree_id`),
+    CONSTRAINT fk_father FOREIGN KEY (`pedigree_father_id`) REFERENCES `kw_pedigree`(`pedigree_id`),
+    CONSTRAINT fk_mother FOREIGN KEY (`pedigree_mother_id`) REFERENCES `kw_pedigree`(`pedigree_id`),
     INDEX `name` (`pedigree_name`),
     INDEX `family` (`pedigree_family`),
     INDEX `birth` (`pedigree_birth`),

@@ -18,8 +18,8 @@ abstract class AMultiTableTest extends AMySqlTest
 {
     protected function dataRefill(): void
     {
-        $this->assertTrue($this->database->exec($this->dropTable1(), []));
         $this->assertTrue($this->database->exec($this->dropTable2(), []));
+        $this->assertTrue($this->database->exec($this->dropTable1(), []));
         $this->assertTrue($this->database->exec($this->basicTable1(), []));
         $this->assertTrue($this->database->exec($this->basicTable2(), []));
         $this->assertTrue($this->database->exec($this->fillTable1(), []));
@@ -30,18 +30,18 @@ abstract class AMultiTableTest extends AMySqlTest
 
     protected function dropTable1(): string
     {
-        return 'DROP TABLE IF EXISTS `kw_pedigree_upd`';
+        return 'DROP TABLE IF EXISTS `kw_pedigree_upd`;';
     }
 
     protected function dropTable2(): string
     {
-        return 'DROP TABLE IF EXISTS `kw_pedigree_relate`';
+        return 'DROP TABLE IF EXISTS `kw_pedigree_relate`;';
     }
 
     protected function basicTable1(): string
     {
         return "CREATE TABLE `kw_pedigree_upd` (
-    `kwp_id` int(32) NOT NULL AUTO_INCREMENT,
+    `kwp_id` INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,
     `kwp_short` varchar(64) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
     `kwp_name` varchar(128) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
     `kwp_family` varchar(256) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -50,7 +50,6 @@ abstract class AMultiTableTest extends AMySqlTest
     `kwp_successes` varchar(1024) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
     `kwp_sex` set('female','male') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'male',
     `kwp_text` longtext COLLATE utf8_unicode_ci NOT NULL,
-    PRIMARY KEY (`kwp_id`),
     -- UNIQUE KEY `identifier` (`kwp_short`),
     INDEX `birth` (`kwp_birth`),
     INDEX `death` (`kwp_death`),
@@ -61,12 +60,11 @@ abstract class AMultiTableTest extends AMySqlTest
     protected function basicTable2(): string
     {
         return "CREATE TABLE `kw_pedigree_relate` (
-    `kwpr_id` int(64) NOT NULL AUTO_INCREMENT,
-    `kwp_id_child` int(64) DEFAULT NULL,
-    `kwp_id_parent` int(64) DEFAULT NULL,
-    PRIMARY KEY (`kwpr_id`),
-    KEY `kp_id_child` (`kwp_id_child`),
-    KEY `kp_id_parent` (`kwp_id_parent`)
+    `kwpr_id` INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    `kwp_id_child` INTEGER NOT NULL,
+    `kwp_id_parent` INTEGER NOT NULL,
+    CONSTRAINT kwp_child FOREIGN KEY (`kwp_id_child`) REFERENCES `kw_pedigree_upd`(`kwp_id`),
+    CONSTRAINT kwp_parent FOREIGN KEY (`kwp_id_parent`) REFERENCES `kw_pedigree_upd`(`kwp_id`)
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Pedigree relations';";
     }
 
