@@ -11,8 +11,8 @@ on:
 jobs:
   tests:
     runs-on: ubuntu-latest
-#    env:
-#      MYSKIP: 1
+    env:
+      MYSKIP: 1
     strategy:
       matrix:
         php: [ '7.3', '7.4', '8.0', '8.1' ]
@@ -54,4 +54,4 @@ jobs:
           php-version: ${{ matrix.php }}
           coverage: none
       - run: composer install --no-progress
-      - run: vendor/bin/phpstan analyse -c phpstan.${{ matrix.php }}.neon
+      - run: vendor/bin/phpstan analyse -c phpstan.neon
