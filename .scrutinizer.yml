@@ -18,6 +18,8 @@ build:
       KW_PEDIGREE_DB_PASS: ''
       KW_PEDIGREE_DB_NAME: 'scrutinizer'
 
+  services:
+    mysql: 8.0
   dependencies:
     before:
       - wget -O composer.phar https://getcomposer.org/composer.phar

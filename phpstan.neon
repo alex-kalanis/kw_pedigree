@@ -13,6 +13,7 @@ parameters:
 	bootstrapFiles:
 		- 'php-tests/_bootstrap.php'
 #	checkGenericClassInNonGenericObjectType: false
+	treatPhpDocTypesAsCertain: false
 	ignoreErrors:
 		# strval, intval
 		- '#Parameter \#1 \$va[lr]u?e? of function [si][tn][rt]val expects#'

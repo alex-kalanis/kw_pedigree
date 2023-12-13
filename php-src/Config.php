@@ -22,9 +22,9 @@ class Config
         try { // try if this config exists
             Database\ConfigStorage::getInstance()->getConfig($sourceName);
         } catch (MapperException $ex) { // if not use our own - with possibility to set it from environment variables
-            $type = getenv('PEDIGREE_DB_TYPE');
-            $host = getenv('PEDIGREE_DB_HOST');
-            $port = getenv('PEDIGREE_DB_PORT');
+            $type = getenv('KW_PEDIGREE_DB_TYPE');
+            $host = getenv('KW_PEDIGREE_DB_HOST');
+            $port = getenv('KW_PEDIGREE_DB_PORT');
             $user = getenv('KW_PEDIGREE_DB_USER');
             $pass = getenv('KW_PEDIGREE_DB_PASS');
             $db = getenv('KW_PEDIGREE_DB_NAME');

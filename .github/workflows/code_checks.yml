@@ -33,7 +33,7 @@ jobs:
       KW_PEDIGREE_DB_NAME: 'dev_testing'
     strategy:
       matrix:
-        php: [ '7.3', '7.4', '8.0', '8.1' ]
+        php: [ '7.4', '8.0', '8.1' ]
     name: PHP ${{ matrix.php }} tests
     steps:
       - uses: actions/checkout@v2
