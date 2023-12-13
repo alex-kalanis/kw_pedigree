@@ -34,8 +34,6 @@ build:
       tests:
         override:
           - php-scrutinizer-run
-      services:
-        mysql: 8.0
     coverage:
       tests:
         override:
@@ -43,8 +41,6 @@ build:
             coverage:
               file:  php-tests/data/clover.xml
               format: php-clover
-      services:
-        mysql: 8.0
 
 coding_style:
   php:
