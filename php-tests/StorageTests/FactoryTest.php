@@ -26,15 +26,15 @@ class FactoryTest extends CommonTestClass
 
     protected function setUp(): void
     {
-        $skipIt = getenv('MYSKIP');
+        $skipIt = getenv('SKIP_DB_TESTS');
         $this->skipIt = false !== $skipIt && boolval(intval(strval($skipIt)));
 
         StaticPrefixKey::setPrefix(realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR  . 'data') . DIRECTORY_SEPARATOR);
-        $host = getenv('MYSERVER');
-        $port = getenv('MYPORT');
-        $user = getenv('MYUSER');
-        $pass = getenv('MYPASS');
-        $db = getenv('MYDB');
+        $host = getenv('KW_PEDIGREE_DB_HOST');
+        $port = getenv('KW_PEDIGREE_DB_PORT');
+        $user = getenv('KW_PEDIGREE_DB_USER');
+        $pass = getenv('KW_PEDIGREE_DB_PASS');
+        $db = getenv('KW_PEDIGREE_DB_NAME');
         Database\ConfigStorage::getInstance()->addConfig(
             Database\Config::init()->setTarget(
                 IDriverSources::TYPE_PDO_MYSQL,

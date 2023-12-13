@@ -12,10 +12,12 @@ build:
     php:
       version: '7.4'
     variables:
-      MYSKIP: 1
-      MYUSER: 'root'
-      MYPASS: ''
-      MYDB: 'scrutinizer'
+#      SKIP_DB_TESTS: 1
+      KW_PEDIGREE_DB_HOST: '127.0.0.1'
+      KW_PEDIGREE_DB_USER: 'root'
+      KW_PEDIGREE_DB_PASS: ''
+      KW_PEDIGREE_DB_NAME: 'scrutinizer'
+
   dependencies:
     before:
       - wget -O composer.phar https://getcomposer.org/composer.phar

@@ -10,9 +10,27 @@ on:
 
 jobs:
   tests:
+    services:
+      mysql:
+        image: mysql:8.0.29
+        env:
+          MYSQL_ROOT_PASSWORD: 'dev_root'
+          MYSQL_DATABASE: 'dev_testing'
+        ports:
+          - "3306:3306"
+        options: >-
+          --health-cmd "mysqladmin ping -pdev_root"
+          --health-interval 10s
+          --health-start-period 10s
+          --health-timeout 5s
+          --health-retries 10
     runs-on: ubuntu-latest
     env:
-      MYSKIP: 1
+#      SKIP_DB_TESTS: 1
+      KW_PEDIGREE_DB_HOST: '127.0.0.1'
+      KW_PEDIGREE_DB_USER: 'root'
+      KW_PEDIGREE_DB_PASS: 'dev_root'
+      KW_PEDIGREE_DB_NAME: 'dev_testing'
     strategy:
       matrix:
         php: [ '7.3', '7.4', '8.0', '8.1' ]

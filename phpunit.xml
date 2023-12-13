@@ -53,23 +53,8 @@
 
     <testsuites>
         <testsuite name="ALL">
-            <directory>php-tests/MappersTests</directory>
-            <directory>php-tests/RecordsTests</directory>
+            <directory>php-tests/BasicTests</directory>
             <directory>php-tests/StorageTests</directory>
-            <directory>php-tests/SearchTests</directory>
-        </testsuite>
-        <testsuite name="debugs">
-            <directory>php-tests/DebugsTests</directory>
-        </testsuite>
-        <testsuite name="db">
-            <directory>php-tests/DatabaseTests</directory>
-        </testsuite>
-        <testsuite name="storedb">
-            <directory>php-tests/StorageTests/Database/Connect</directory>
-            <directory>php-tests/StorageTests/Database/DeepQuery</directory>
-        </testsuite>
-        <testsuite name="dialdb">
-            <directory>php-tests/StorageTests/Database/Dialects</directory>
         </testsuite>
     </testsuites>
 </phpunit>
