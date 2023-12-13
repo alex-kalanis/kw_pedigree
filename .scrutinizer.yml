@@ -16,7 +16,7 @@ build:
       KW_PEDIGREE_DB_HOST: '127.0.0.1'
       KW_PEDIGREE_DB_USER: 'root'
       KW_PEDIGREE_DB_PASS: ''
-      KW_PEDIGREE_DB_NAME: 'scrutinizer'
+      KW_PEDIGREE_DB_NAME: 'scrutinizer_run'
 
   services:
     mysql: 8.0
@@ -25,13 +25,17 @@ build:
       - wget -O composer.phar https://getcomposer.org/composer.phar
       - chmod +x composer.phar
       - ./composer.phar install
+  project_setup:
+    before:
+      - sudo service start mysql || true
+      - mysql -e "CREATE DATABASE scrutinizer_run"
   nodes:
     analysis:
       tests:
         override:
           - php-scrutinizer-run
       services:
-        mariadb: 10
+        mysql: 8.0
     coverage:
       tests:
         override:
@@ -40,7 +44,7 @@ build:
               file:  php-tests/data/clover.xml
               format: php-clover
       services:
-        mariadb: 10
+        mysql: 8.0
 
 coding_style:
   php:
