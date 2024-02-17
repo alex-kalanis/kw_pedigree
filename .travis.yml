@@ -22,9 +22,6 @@ script:
 
 env:
   global:
-    - MYUSER=root
-    - MYPASS=
-    - MYDB=travis_ci_test
     - KW_PEDIGREE_DB_USER=root
     - KW_PEDIGREE_DB_PASS=
     - KW_PEDIGREE_DB_NAME=travis_ci_test
